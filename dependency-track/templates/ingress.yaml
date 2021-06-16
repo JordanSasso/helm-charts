@@ -1,6 +1,5 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "common.names.fullname" . -}}
-{{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -20,11 +19,11 @@ spec:
   - host: {{ .Values.ingress.host }}
     http:
       paths:
-      - path: {{ $ingressPath }}
+      - path: /
         backend:
           serviceName: {{ $fullName }}-frontend
           servicePort: http
-      - path: {{ $ingressPath }}api
+      - path: /api
         backend:
           serviceName: {{ $fullName }}-backend
           servicePort: http
