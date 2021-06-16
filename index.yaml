@@ -3,7 +3,7 @@ entries:
   dependency-track:
   - apiVersion: v2
     appVersion: 4.2.2
-    created: "2021-06-15T22:29:25.306652-04:00"
+    created: "2021-06-15T22:36:43.065368-04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -32,4 +32,4 @@ entries:
     urls:
     - charts/dependency-track-1.0.8.tgz
     version: 1.0.8
-generated: "2021-06-15T22:29:25.299912-04:00"
+generated: "2021-06-15T22:36:43.05828-04:00"
