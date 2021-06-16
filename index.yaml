@@ -3,7 +3,7 @@ entries:
   dependency-track:
   - apiVersion: v2
     appVersion: 4.2.2
-    created: "2021-06-15T22:44:31.920468-04:00"
+    created: "2021-06-15T22:49:58.100816-04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -13,7 +13,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 1.4.x
     description: 'Dependency-Track is an intelligent Software Supply Chain Component Analysis platform that allows organizations to identify and reduce risk from the use of third-party and open source components. Dependency-Track takes a unique and highly beneficial approach by leveraging the capabilities of Software Bill-of-Materials (SBOM). This approach provides capabilities that traditional Software Composition Analysis (SCA) solutions cannot achieve. '
-    digest: 122d6fdbc14c351c0095b68d3d27bd5c7aed3d037116ca730d6c86c81f7613d8
+    digest: 40cc3e70278df41bee0be57bc958b6dfddb70d55c2aba3b6d1c7613e560e733f
     home: https://dependencytrack.org/
     icon: https://raw.githubusercontent.com/DependencyTrack/branding/master/dt-logo-black-text.svg
     keywords:
@@ -32,4 +32,4 @@ entries:
     urls:
     - charts/dependency-track-1.0.8.tgz
     version: 1.0.8
-generated: "2021-06-15T22:44:31.91397-04:00"
+generated: "2021-06-15T22:49:58.094765-04:00"

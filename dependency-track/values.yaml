@@ -156,6 +156,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
     ## allow large bom.xml uploads:
     # nginx.ingress.kubernetes.io/proxy-body-size: 10m
+  # path: /
   host: chart-example.local
 
 # Postgres variables
