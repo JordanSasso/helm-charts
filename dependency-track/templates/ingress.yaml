@@ -22,9 +22,9 @@ spec:
       - path: /
         backend:
           serviceName: {{ $fullName }}-frontend
-          servicePort: http
+          servicePort: 80
       - path: /api
         backend:
-          serviceName: {{ $fullName }}-backend
-          servicePort: http
+          serviceName: {{ $fullName }}-apiserver
+          servicePort: 80
 {{- end }}
