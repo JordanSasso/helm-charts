@@ -1,40 +1,29 @@
-{{- if .Values.frontend.ingress.enabled -}}
-{{- $fullName := include "dependency-track.fullname" . -}}
-{{- $ingressPath := .Values.frontend.ingress.path -}}
+{{- if .Values.ingress.enabled -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
-  labels:
-{{ include "dependency-track.labels" . | indent 4 }}
-{{- with .Values.frontend.ingress.annotations }}
-  annotations:
-{{ toYaml . | indent 4 }}
-{{- end }}
+  name: {{ include "common.names.fullname" . }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations: {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
-{{- if .Values.frontend.ingress.tls }}
+  {{- if .Values.ingress.tls.enabled }}
   tls:
-  {{- range .Values.frontend.ingress.tls }}
-    - hosts:
-      {{- range .hosts }}
-        - {{ . }}
-      {{- end }}
-      secretName: {{ .secretName }}
+  - hosts:
+    - {{ .Values.ingress.host }}
+    secretName: {{ .Values.ingress.tls.secretName }}
   {{- end }}
-{{- end }}
   rules:
-  {{- range .Values.frontend.ingress.hosts }}
-    - host: {{ . }}
-      http:
-        paths:
-          - path: {{ $ingressPath }}
-            backend:
-              serviceName: {{ $fullName }}-frontend
-              servicePort: http
-          - path: {{ $ingressPath }}api
-            backend:
-              serviceName: {{ $fullName }}-backend
-              servicePort: http
-
-  {{- end }}
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - path: {{ $ingressPath }}
+        backend:
+          serviceName: {{ $fullName }}-frontend
+          servicePort: http
+      - path: {{ $ingressPath }}api
+        backend:
+          serviceName: {{ $fullName }}-backend
+          servicePort: http
 {{- end }}
