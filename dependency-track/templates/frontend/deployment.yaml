@@ -14,7 +14,6 @@ spec:
       {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}
       {{- end }}
-      serviceAccountName: {{ include "common.names.fullname" . }}-frontend
       securityContext: {{- toYaml .Values.frontend.podSecurityContext | nindent 8 }}
       containers:
       - name: {{ .Chart.Name }}-frontend

@@ -18,7 +18,6 @@ spec:
       {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}
       {{- end }}
-      serviceAccountName: {{ include "common.names.fullname" . }}-apiserver
       securityContext: {{- toYaml .Values.apiserver.podSecurityContext | nindent 8 }}
       {{- with .Values.apiserver.initContainers }}
       initContainers: {{- toYaml . | nindent 6 }}
